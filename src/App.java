@@ -11,6 +11,7 @@ public class App {
         userManagement.userEdit("dono123", "donodoye", "asd", "asd");
         userManagement.userEdit("dono123", "donodoyes", "dono111", "doyesdono");
         userManagement.userLogin("dono111", "doyesdono");
+        System.out.println("Asda");
         
         
         int[] listTravelDono = {100000, 200000, 300000};

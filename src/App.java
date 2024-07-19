@@ -10,7 +10,7 @@ public class App {
         System.out.println("\n--------------Edit--------------\n");
         userManagement.userEdit("dono123", "donodoye", "asd", "asd");
         userManagement.userEdit("dono123", "donodoyes", "dono111", "doyesdono");
-        userManagement.userLogin("dono111", "doyesdono");        
+        userManagement.userLogin("dono111", "doyesdono");  
         
         int[] listTravelDono = {100000, 200000, 300000};
         int[] listInsuranceDono = {500000, 500000, 1000000};
@@ -31,7 +31,7 @@ public class App {
         allowancemanagement.editAllowance(3, 123);
         allowancemanagement.editAllowance(1, 123);
         allowancemanagement.editAllowance(2, 555, 111);
-        allowancemanagement.displayAllAllowance();
+        allowancemanagement.displayAllAllowance();      
 
     }
 

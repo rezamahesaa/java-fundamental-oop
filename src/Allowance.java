@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Allowance implements  InterfaceAllowance{
+public class Allowance implements InterfaceAllowance{
     private int employeeID;
     private int totalTravel;
     private int totalInsurance;

@@ -24,10 +24,6 @@ public class AllowanceManagement implements InterfaceAllowanceManagement {
     }
 
     @Override
-    public void editAllowance(){
-
-    }
-    // OVERRIDE edit allowance jd ubah total travel DAN insurance
     public void editAllowance(int employeeID, int newTotalTravel, int newTotalInsurance){
         boolean isIdValid = false;
         for (Allowance allowance : listAllowanceEmployee) {
@@ -43,7 +39,7 @@ public class AllowanceManagement implements InterfaceAllowanceManagement {
         }
     }
 
-    // OVERRIDE edit allowance jd HANYA ubah total travel
+    // OVERLOAD edit allowance jd HANYA ubah total travel
     public void editAllowance(int employeeID, int newTotalTravel){
         boolean isIdValid = false;
         for (Allowance allowance : listAllowanceEmployee) {

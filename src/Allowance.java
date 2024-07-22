@@ -1,17 +1,21 @@
-import java.util.Arrays;
-
-public class Allowance implements InterfaceAllowance{
+public class Allowance{
     private int employeeID;
     private int totalTravel;
     private int totalInsurance;
-    private int[] listTravelAllowance;
-    private int[] listInsuranceAllowance;
+    private TravelAllowance objTravelAllowance;
+    private InsuranceAllowance objInsuranceAllowance;
+    private int totalAllowance;
     
-    public Allowance(int employeeID, int[] listTravelAllowance, int[] listInsuranceAllowance) {
+    public Allowance(int employeeID) {
         this.employeeID = employeeID;
-        this.listTravelAllowance = listTravelAllowance;
-        this.listInsuranceAllowance = listInsuranceAllowance;
     }
+
+    public Allowance(int employeeID, InsuranceAllowance objInsuranceAllowance, TravelAllowance objTravelAllowance) {
+        this.employeeID = employeeID;
+        this.objInsuranceAllowance = objInsuranceAllowance;
+        this.objTravelAllowance = objTravelAllowance;
+    }
+
 
     public int getTotalTravel() {
         return totalTravel;
@@ -35,50 +39,34 @@ public class Allowance implements InterfaceAllowance{
 
     public void setEmployeeID(int employeeID) {
         this.employeeID = employeeID;
-    }
-
-    public int[] getListTravelAllowance() {
-        return listTravelAllowance;
-    }
-
-    public void setListTravelAllowance(int[] listTravelAllowance) {
-        this.listTravelAllowance = listTravelAllowance;
-    }
+    }  
     
-    public int[] getListInsuranceAllowance() {
-        return listInsuranceAllowance;
+    public TravelAllowance getObjTravelAllowance() {
+        return objTravelAllowance;
     }
 
-    public void setListInsuranceAllowance(int[] listInsuranceAllowance) {
-        this.listInsuranceAllowance = listInsuranceAllowance;
+    public void setObjTravelAllowance(TravelAllowance objTravelAllowance) {
+        this.objTravelAllowance = objTravelAllowance;
+    }
+
+    public InsuranceAllowance getObjInsuranceAllowance() {
+        return objInsuranceAllowance;
+    }
+
+    public void setObjInsuranceAllowance(InsuranceAllowance objInsuranceAllowance) {
+        this.objInsuranceAllowance = objInsuranceAllowance;
+    }
+
+    public int getTotalAllowance() {
+        return totalAllowance;
+    }
+
+    public void setTotalAllowance(int totalAllowance) {
+        this.totalAllowance = totalAllowance;
     };
 
-    @Override
-    public void calculateTotalTravel(){
-        int total = 0;
-        for (int i : listTravelAllowance) {
-            total += i;
-        }
-        setTotalTravel(total);
-    };
-
-    @Override
-    public void calculateTotalInsurance(){
-        int total = 0;
-        for (int i : listInsuranceAllowance) {
-            total += i;
-        }
-        setTotalInsurance(total);
+    public void calculateTotal(){
+        setTotalAllowance(totalTravel + totalInsurance);
     }
-
-    @Override
-    public String toString() {
-        return "Allowance [employeeID=" + employeeID + ", totalTravel=" + totalTravel + ", totalInsurance="
-                + totalInsurance + ", listTravelAllowance=" + Arrays.toString(listTravelAllowance)
-                + ", listInsuranceAllowance=" + Arrays.toString(listInsuranceAllowance) + "]";
-    }
-
-
-    
     
 }

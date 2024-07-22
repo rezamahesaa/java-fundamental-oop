@@ -1,15 +1,18 @@
-public class AllowanceManagement implements InterfaceAllowanceManagement {
-    private Allowance[] listAllowanceEmployee;
 
-    public AllowanceManagement(Allowance[] listAllowanceEmployee) {
+import java.util.ArrayList;
+
+public class AllowanceManagement implements InterfaceAllowanceManagement {
+    private ArrayList<Allowance> listAllowanceEmployee;
+
+    public AllowanceManagement(ArrayList<Allowance> listAllowanceEmployee) {
         this.listAllowanceEmployee = listAllowanceEmployee;
     }
 
-    public Allowance[] getListAllowanceEmployee() {
+    public ArrayList<Allowance> getListAllowanceEmployee() {
         return listAllowanceEmployee;
     }
 
-    public void setListAllowanceEmployee(Allowance[] listAllowanceEmployee) {
+    public void setListAllowanceEmployee(ArrayList<Allowance> listAllowanceEmployee) {
         this.listAllowanceEmployee = listAllowanceEmployee;
     }
 
@@ -17,8 +20,8 @@ public class AllowanceManagement implements InterfaceAllowanceManagement {
     public void displayAllAllowance(){
         for (Allowance allowance : listAllowanceEmployee) {
             System.out.println();
-            System.out.println("User ID\t\tTotalTravel\tTotal Insurance");
-            System.out.println(allowance.getEmployeeID() + "\t\t"+ allowance.getTotalTravel() + "\t\t" + allowance.getTotalInsurance());
+            System.out.println("User ID\t\tTotalTravel\tTotal Insurance\tTotal Allowance");
+            System.out.println(allowance.getEmployeeID() + "\t\t"+ allowance.getTotalTravel() + "\t\t" + allowance.getTotalInsurance() + "\t\t" + allowance.getTotalAllowance());
         }
         System.out.println();
     }
@@ -30,21 +33,6 @@ public class AllowanceManagement implements InterfaceAllowanceManagement {
             if(allowance.getEmployeeID() == employeeID){
                 allowance.setTotalTravel(newTotalTravel);
                 allowance.setTotalInsurance(newTotalInsurance);
-                isIdValid = true;
-                break;
-            }
-        }
-        if(!isIdValid){
-            System.out.println("Employee ID salah");
-        }
-    }
-
-    // OVERLOAD edit allowance jd HANYA ubah total travel
-    public void editAllowance(int employeeID, int newTotalTravel){
-        boolean isIdValid = false;
-        for (Allowance allowance : listAllowanceEmployee) {
-            if(allowance.getEmployeeID() == employeeID){
-                allowance.setTotalTravel(newTotalTravel);
                 isIdValid = true;
                 break;
             }

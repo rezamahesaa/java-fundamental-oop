@@ -1,45 +1,48 @@
-public class UserManagement {
-    private User[] listUser;
 
-    public UserManagement(User[] listUser) {
+import java.util.ArrayList;
+
+public class UserManagement {
+    private ArrayList<User> listUser;
+
+    public UserManagement(ArrayList<User> listUser) {
         this.listUser = listUser;
     }
 
-    public User[] getListUser() {
+    public ArrayList<User> getListUser() {
         return listUser;
     }
 
-    public void setListUser(User[] listUser) {
+    public void setListUser(ArrayList<User> listUser) {
         this.listUser = listUser;
     }
 
     public void userLogin(String username, String password){
         System.out.println();
-        boolean isValid = false;
-        for (User user : getListUser()) {
-            if((user.getUsername().equals(username)) && user.getPassword().equals(password)){
-                System.out.println("Halo " + user.getName() + " !");
-                isValid = true;
-                break;
-            }
-        }
-        if(!isValid){
+        User validUser = listUser.stream()
+                .filter(u -> ((u.getUsername().equals(username)) && (u.getPassword().equals(password))))
+                .findFirst()
+                .orElse(null);
+        if(validUser == null){
             System.out.println("Username atau password SALAH!");
         }
+        else{
+            System.out.println("Halo " + validUser.getName() + " ("+ validUser.getUsername() +")!");
+        }
+
     }
     public void userEdit(String oldUsername, String oldPassword, String newUsername, String newPassword){
-        boolean isValid = false;
-        for (User user : getListUser()) {
-            if((user.getUsername().equals(oldUsername)) && user.getPassword().equals(oldPassword)){
-                System.out.println("Halo " + user.getName() + " !");
-                isValid = true;
-                user.setUsername(newUsername);
-                user.setPassword(newPassword);
-                break;
-            }
-        }
-        if(!isValid){
+        System.out.println();
+        User validUser = listUser.stream()
+                .filter(u -> ((u.getUsername().equals(oldUsername)) && (u.getPassword().equals(oldPassword))))
+                .findFirst()
+                .orElse(null);
+        if(validUser == null){
             System.out.println("Username atau password SALAH!");
+        }
+        else{
+            System.out.println("Halo " + validUser.getName() + " ("+ validUser.getUsername() +")!");
+            validUser.setUsername(newUsername);
+            validUser.setPassword(newPassword);
         }
     }
 }
